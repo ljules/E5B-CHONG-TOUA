@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head th:replace="mesFragments :: fragHead">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="min-vh-100">
+    <nav th:replace="mesFragments :: fragNav"></nav>
+    <main class="container">
+        <h1>Détails de l'arme</h1>
+        <div>
+            <p><strong>Nom : </strong> <span th:text="${bombe.nom}"></span></p>
+            <p><strong>Description : </strong> <span th:text="${bombe.description}"></span></p>
+            <div class="row">
+                <div class="col-6">
+                    <p><strong>cheminImage : </strong> <span th:text="${bombe.cheminImage}"></span></p>
+                    <p><strong>nbrDes : </strong> <span th:text="${bombe.nbrDes}"></span></p>
+                    <p><strong>maxDes : </strong> <span th:text="${bombe.maxDes}"></span></p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a th:href="@{'/admin/bombe/'+${bombe.id}+'/edit'}" class="btn btn-warning">
+                Modifier
+            </a>
+            <a th:href="@{'/admin/bombe'}" class="btn btn-primary">
+                Retour à la liste
+            </a>
+        </div>
+    </main>
+
+</div>
+<footer th:replace="mesFragments :: fragFooter"></footer>
+</body>
+</html>

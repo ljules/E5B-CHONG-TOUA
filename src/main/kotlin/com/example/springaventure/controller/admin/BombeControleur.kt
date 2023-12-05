@@ -4,6 +4,8 @@ import com.example.springaventure.model.dao.BombeDao
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+
 /**
  * Contrôleur responsable de la gestion des bombes dans la partie administrative de l'application.
  */
@@ -27,5 +29,12 @@ class BombeControleur(
         model.addAttribute("bombes", bombes)
         // Retourne le nom de la vue à afficher
         return "admin/bombe/index"
+    }
+
+    @GetMapping("/admin/bombe/{id}")
+    fun show(@PathVariable id: Long, model: Model): String {
+        val bombe = this.bombeDao.findById(id).orElseThrow()
+        model.addAttribute("bombe", bombe)
+        return "admin/bombe/show"
     }
 }

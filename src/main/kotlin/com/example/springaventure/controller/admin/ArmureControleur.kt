@@ -21,7 +21,8 @@ class ArmureControleur(
     val qualiteDao: QualiteDao,
 
     /** DAO pour l'accès aux données des types d'armures. */
-    val typeArmureDao: TypeArmureDao
+    val typeArmureDao: TypeArmureDao,
+
 ) {
 
     /**

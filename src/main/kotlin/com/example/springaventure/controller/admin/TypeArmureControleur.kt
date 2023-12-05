@@ -1,6 +1,7 @@
 package com.example.springaventure.controller.admin
 
 
+import com.example.springaventure.model.dao.ArmureDao
 import com.example.springaventure.model.dao.TypeArmureDao
 import com.example.springaventure.model.entity.TypeArmure
 import org.springframework.stereotype.Controller
@@ -14,7 +15,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
 @Controller
 class TypeArmureControleur(
     /** DAO pour l'accès aux données des types d'armures. */
-    val typeArmureDao: TypeArmureDao
+    val typeArmureDao: TypeArmureDao,
+
+    val armureDao: ArmureDao,
+
+
 ) {
 
     /**
@@ -27,10 +32,12 @@ class TypeArmureControleur(
     fun index(model: Model): String {
         // Récupère tous les types d'armures depuis la base de données
         val typeArmures = this.typeArmureDao.findAll()
-        // Ajoute la liste des types d'armures au modèle pour transmission à la vue
+
+        // Ajoute la Map au modèle pour transmission à la vue
         model.addAttribute("typeArmures", typeArmures)
         return "admin/typeArmure/index"
     }
+
 
     /**
      * Affiche les détails d'un type d'armure en fonction de son ID.
