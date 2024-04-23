@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head th:replace="mesFragments :: fragHead">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="min-vh-100">
+    <nav th:replace="mesFragments :: fragNav"></nav>
+    <main class="container">
+        <h1>Modifier une potion</h1>
+        <form novalidate class="validation" th:action="@{/admin/potion/update}" th:object="${potion}" method="post">
+            <input type="hidden" th:field="${potion.id}">
+            <div class="mb-3">
+                <label for="nom" class="form-label">Nom</label>
+                <input minlength="3" maxlength="255" type="text" class="form-control" id="nom" th:field="${potion.nom}" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea minlength="3" maxlength="255" class="form-control" id="description" th:field="${potion.description}" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Chemin Image</label>
+                <input type="text" class="form-control" id="image" th:field="${potion.cheminImage}" >
+            </div>
+            <div class="mb-3">
+                <label for="soin" class="form-label">Nombre Dés</label>
+                <input type="text" class="form-control" id="soin" th:field="${potion.soin}" >
+            </div>
+
+
+
+            <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+        </form>
+    </main>
+
+</div>
+<footer th:replace="mesFragments :: fragFooter"></footer>
+<script src="/js/validation.js"></script>
+</body>
+</html>

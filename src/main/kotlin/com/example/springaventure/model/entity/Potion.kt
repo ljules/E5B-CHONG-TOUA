@@ -27,7 +27,7 @@ class Potion(
     cheminImage: String?,
 
     // La propriété spécifique à la potion, le soin qu'elle procure
-    val soin: Int
+    var soin: Int
 ) : Item(id, nom, description, cheminImage) {
 
     /**
