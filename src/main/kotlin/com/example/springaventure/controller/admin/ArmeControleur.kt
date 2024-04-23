@@ -4,6 +4,7 @@ import com.example.springaventure.model.dao.ArmeDao
 import com.example.springaventure.model.dao.QualiteDao
 import com.example.springaventure.model.dao.TypeArmeDao
 import com.example.springaventure.model.entity.Arme
+import com.example.springaventure.model.entity.Item
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
@@ -50,6 +51,9 @@ class ArmeControleur(
         model.addAttribute("arme", arme)
         return "admin/arme/show"
     }
+
+
+
 
     /**
      * Affiche le formulaire de création d'une nouvelle arme.

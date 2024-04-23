@@ -15,7 +15,7 @@ import jakarta.persistence.Entity
 @Entity
 @DiscriminatorValue("bombe")
 class Bombe(
-    id: Long,
+    id: Long?,
     nom: String,
     description: String,
     cheminImage: String,

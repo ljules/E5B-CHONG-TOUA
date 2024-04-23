@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head th:replace="mesFragments :: fragHead">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="min-vh-100">
+    <nav th:replace="mesFragments :: fragNav"></nav>
+    <main class="container">
+        <h1>Ajouter une Bombe</h1>
+        <form  class="validation" novalidate th:action="@{/admin/bombe}" th:object="${nouvelleBombe}" method="post">
+            <div class="mb-3">
+                <label for="nom" class="form-label">Nom</label>
+                <input minlength="3" maxlength="255" type="text" class="form-control" id="nom" th:field="${nouvelleBombe.nom}" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea minlength="3" maxlength="255" class="form-control" id="description" th:field="${nouvelleBombe.description}" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Chemin Image</label>
+                <input type="text" class="form-control" id="image" th:field="${nouvelleBombe.cheminImage}">
+            </div>
+            <div class="mb-3">
+                <label for="nbrDes" class="form-label">Nombre Dés</label>
+                <input type="text" class="form-control" id="nbrDes" th:field="${nouvelleBombe.nbrDes}" >
+            </div>
+            <div class="mb-3">
+                <label for="maxDes" class="form-label">Max Dés</label>
+                <input type="text" class="form-control" id="maxDes" th:field="${nouvelleBombe.maxDes}" >
+            </div>
+
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+        </form>
+    </main>
+
+</div>
+<footer th:replace="mesFragments :: fragFooter"></footer>
+<script src="/js/validation.js"></script>
+</body>
+</html>

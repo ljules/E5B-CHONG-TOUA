@@ -155,8 +155,11 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item" th:each="uneLigne : ${combat.campagne.hero.ligneInventaires}">
                                 <span th:text="${uneLigne.item.nom+' X '+uneLigne.quantite}"></span>
-                                <form th:action="'/joueur/combat/'+${combat.id}+'/utiliser?idItem='+${uneLigne.item.id}" method="post"></form>
+                                <form th:action="${combat.campagne.hero.equipe(uneLigne.item)}" method="post">
+                                    <button th:if="${uneLigne.item.estChangeable(uneLigne.item)}">Utiliser</button>
+                                </form>
                             </li>
+
                         </ul>
                     </div>
                     <div class="modal-footer">

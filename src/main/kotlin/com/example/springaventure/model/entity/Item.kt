@@ -49,4 +49,14 @@ open abstract class Item constructor(
     override fun toString(): String {
         return "${nom} (nom='$nom', description='$description')"
     }
+    fun estChangeable(item: Item): Boolean {
+        if(item is Arme) {
+            return item is Arme
+        }
+        else if( item is Armure) {
+            return item is Armure
+        }
+
+        return false
+    }
 }

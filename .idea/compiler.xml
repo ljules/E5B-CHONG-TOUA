@@ -12,6 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="E5B-CHONG-TOUA" options="-parameters" />
       <module name="springaventure" options="-parameters" />
     </option>
   </component>
